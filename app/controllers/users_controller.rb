@@ -22,10 +22,18 @@ class UsersController < ApplicationController
   def edit
   end  
   
+  def update
+    if @user.update(user_params)
+       redirect_to user_path , notice: '編集しました'
+    else
+      render 'edit'
+    end
+  end  
+  
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :location)
   end
   
   def set_user

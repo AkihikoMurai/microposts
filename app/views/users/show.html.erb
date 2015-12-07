@@ -1,4 +1,18 @@
+
 <h1>
     <%= gravatar_for @user %>
     <%= @user.name %>
 </h1>
+
+        <div class="col-sm-4">
+            name：
+            <span class="label label-info"><%= @user.name %></span>
+        </div>
+        <div class="col-sm-4">
+            email：
+            <%= @user.email %>
+        </div>
+        <div class="col-sm-4">
+            location：
+            <%= @user.location %>
+        </div>
