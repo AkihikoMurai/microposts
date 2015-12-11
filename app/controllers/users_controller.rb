@@ -1,6 +1,15 @@
 class UsersController < ApplicationController
-  before_action :set_user, only:[:show, :edit, :update]
+  before_action :set_user, only:[:show, :edit, :update,:followings,:followers]
   before_action :user_check, only:[:edit, :update]
+
+  def followings
+    @users = @user.following_users
+    #viewを表示　=> デフォルトのテンプレートファイルを持っている
+  end
+ 
+  def followers
+    @users = @user.follower_users
+  end
 
   def show
     @user = User.find(params[:id])
