@@ -7,8 +7,18 @@
                 <%= gravatar_for @user %>
                 <%= @user.name %>    
             </h1>
-        </section>    
+        </section>
+        <!-- プロフィールの表示 -->
+        <h1 class="text-left">プロフィール</h1>
+        <div class="text-left">名前：<%= @user.name %></div>
+        <div class="text-left">メールアドレス：<%= @user.email %></div>
+        <div class="text-left">地域：<%= @user.location %>
+        
+        <!-- フォロー、フォロワーの表示 -->
+        <h4 class="text-left"><%= link_to 'following', followings_user_path(@user) %></h4>
+        <h4 class="text-left"><%=  link_to 'follower', followers_user_path(@user) %></h4>
     </aside>
+
     <div class="col-md-8">
         <%= render 'follow_form' if logged_in? %>
         <% if @user.microposts.any? %>
@@ -20,10 +30,6 @@
     </div>
 </div>
 
-<%= link_to 'following', followings_user_path(@user) %>
-<%=  link_to 'follower', followers_user_path(@user) %>
 
-<h1 class="text-left">プロフィール</h1>
-<div class="text-left">名前：<%= @user.name %></div>
-<div class="text-left">メールアドレス：<%= @user.email %></div>
-<div class="text-left">地域：<%= @user.location %></div>
+
+
