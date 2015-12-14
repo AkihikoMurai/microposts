@@ -12,7 +12,7 @@
         <h1 class="text-left">プロフィール</h1>
         <div class="text-left">名前：<%= @user.name %></div>
         <div class="text-left">メールアドレス：<%= @user.email %></div>
-        <div class="text-left">地域：<%= @user.location %>
+        <div class="text-left">地域：<%= @user.location %></div>
         
         <!-- フォロー、フォロワーの表示 -->
         <h4 class="text-left"><%= link_to 'following', followings_user_path(@user) %></h4>

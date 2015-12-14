@@ -1,5 +1,7 @@
 <h1>Followings</h1>
 
 <div class="container-field">
-<%= render @users %>
+<% @users.each do |user| %>
+    <%= render partial: 'users/user', locals: { user: user } %>
+<% end %>    
 </div>
