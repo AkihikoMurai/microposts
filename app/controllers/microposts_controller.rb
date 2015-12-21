@@ -7,6 +7,8 @@ class MicropostsController < ApplicationController
             flash[:success] = "Micopost created!"
             redirect_to root_url
         else
+            @feed_items = current_user.feed_items.includes(:user).order(created_at: :desc)
+            
             render 'static_pages/home'
         end    
     end
